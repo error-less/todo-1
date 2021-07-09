@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>todo</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        
-        <h1>Today is <%=kindday %> </h1>
- 
-       <ul>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>todo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Content here -->
+        <h1> <%=kindday %> </h1>
+    </div>
+
+    <ul>
         <% for(var i=0; i < listitems.length; i++){ %>
         <li> <%= listitems[i] %> </li>
         <%}%>
        </ul>
        <form action="/" method="post">
-        <input type="text" name="task" id="" placeholder="enter task" />
-        <button type="submit">ADD</button>
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" id = "input" name ="task" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <button type="submit" class="btn btn-dark">Add</button>
     </form>
         
         <script src="" async defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
