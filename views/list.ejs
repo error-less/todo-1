@@ -11,8 +11,17 @@
     </head>
     <body>
         
-        <h1>Today is <%=day %> </h1>
-    
+        <h1>Today is <%=kindday %> </h1>
+ 
+       <ul>
+        <% for(var i=0; i < listitems.length; i++){ %>
+        <li> <%= listitems[i] %> </li>
+        <%}%>
+       </ul>
+       <form action="/" method="post">
+        <input type="text" name="task" id="" placeholder="enter task" />
+        <button type="submit">ADD</button>
+    </form>
         
         <script src="" async defer></script>
     </body>

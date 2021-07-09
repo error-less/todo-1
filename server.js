@@ -1,39 +1,32 @@
-const express=require('express');
+const express = require('express');
+const bodyParser=require('body-parser');
 const app = express();
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-
-app.get('/',(req,res)=>{
-    var d=new Date();
-    var current_day=d.getDay()
-    var day=""
-    switch(current_day){
-        case 0:
-            day="sunday";
-            break;
-        case 1:
-            day="Monday";
-            break;
-        case 2:
-            day="Tuesday";
-            break;
-        case 3:
-            day="Wednesday";
-            break;
-        case 4:
-            day="Thursday";
-            break;
-        case 5:
-            day="Friday";
-            break;
-        case 6:
-            day="Saturday";
-            break;
-    }
-    res.render("list",{day:day});
+app.use(bodyParser.urlencoded({
+    extended:true
+}))
+var items = ["take breakfast","take bath"];
+app.get('/', (req, res) => {
+    var d = new Date();
+    var options = {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    };
+    const day=(d.toLocaleDateString('en-ZA', options));
+    res.render("list", {
+        kindday: day,
+        listitems:items
+    });
+})
+app.post('/', (req, res) => {
+    var item =req.body.task
+    items.push(item);
+    res.redirect('/');
 })
 
-app.listen(5000,()=>{
-    console.log('running on port 5000')
+app.listen(3030, () => {
+    console.log('running on port 3030')
 })
