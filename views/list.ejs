@@ -20,12 +20,12 @@
         
     <div class="box">
 
-            <% for(var i=0; i < listitems.length; i++){ %>
-            <div class="item">
-                <input type="checkbox">
-                <p><li style="list-style: none;"> <%= listitems[i].name %> </li></p>
-            </div>
-            <%}%>
+           <% listitems.forEach(function(item){ %>
+                <div class="item">
+                    <input type="checkbox">
+                    <p> <%= item.name %> </p>
+                </div>
+           <% })%>
           
            <form action="/" method="post" class="item">
             
