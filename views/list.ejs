@@ -15,14 +15,15 @@
 
 <body>
     <div class="box" id="heading">
-        <h1> <%=kindday %> </h1>
+        <h1> <%=listtitle %> </h1>
     </div>
         
     <div class="box">
+
             <% for(var i=0; i < listitems.length; i++){ %>
             <div class="item">
                 <input type="checkbox">
-                <p><li style="list-style: none;"> <%= listitems[i] %> </li></p>
+                <p><li style="list-style: none;"> <%= listitems[i].name %> </li></p>
             </div>
             <%}%>
           
@@ -30,7 +31,7 @@
             
                 <input type="text" class="form-control" id = "input" name ="task" placeholder="enter task">
               
-              <button type="submit" class="btn btn-dark" id="add">+</button>
+              <button type="submit"  id="add" name ="list" value =<%= listtitle%> >+</button>
         </form>
     </div>
         

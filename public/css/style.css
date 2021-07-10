@@ -3,7 +3,7 @@ body {
     background-image: -webkit-linear-gradient(55deg, #A683E3 50%, #E4E9FD 50%);
     min-height: 92vh;
     font-family: 'helvetica neue';
-    overflow: hidden;
+    overflow:scroll;
   }
   
   h1 {
