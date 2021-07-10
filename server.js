@@ -58,14 +58,24 @@ app.get('/work',(req, res)=>{
     })
 })
 app.post('/', (req, res) => {
-    var item =req.body.task
-    if(req.body.list==="work"){
-        workitems.push(item);
-        res.redirect('/work')
-    }
-    else{
-    items.push(item);
-    res.redirect('/');}
+    var itemname =req.body.task
+     const item=new Item({
+         name:itemname
+     })
+     item.save()
+     res.redirect('/')
+    
+})
+app.post('/delete',(req, res)=>{
+    const checkeditem=req.body.checkbox
+
+    Item.findByIdAndRemove(checkeditem,function(err){
+        if(!err){
+            console.log("no errors")
+            res.redirect('/');
+        }
+    });
+    
 })
 
 app.listen(3030, () => {
