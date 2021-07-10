@@ -27,20 +27,27 @@ const item3= new Item({
 })
 
 const defaultitems=[item1,item2,item3]
-Item.insertMany(defaultitems,function(err){
-    if(err){
-        console.log(err)
-    }
-    else{
-        console.log("successfully create db")
-    }
-})
+
 app.get('/', (req, res) => {
     Item.find({},function(err,founditems){
+
+        if(founditems.length===0){
+            Item.insertMany(defaultitems,function(err){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log("successfully create db")
+                }
+            })
+            res.redirect('/');
+        }
+        else{
         res.render("list", {
             listtitle: "Today",
             listitems:founditems
         });
+    }
     })
    
 })
